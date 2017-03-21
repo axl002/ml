@@ -63,7 +63,7 @@ public class KNN {
         for (int key : cellMap.keySet()) {
             int[] guesses = new int[k];
             for (int j = 0; j < k; j++) {
-                int currentKey = cellMap.get(key).distance.get(j).ID;
+                int currentKey = cellMap.get(key).distances.get(j).ID;
 
                 guesses[j] = cellMap.get(currentKey).CANCER;
             }
@@ -74,11 +74,11 @@ public class KNN {
     }
 
 
-    // for each point compute euclidian distance with every other point
-    // store distance in list
+    // for each point compute euclidian distances with every other point
+    // store distances in list
     // sort list
-    // construct cell object to store cell info and distance list
-    // put cell with distance list into hashmap
+    // construct cell object to store cell info and distances list
+    // put cell with distances list into hashmap
     private static void kek() {
         for (int i = 0; i < cells.length; i++) {
             if (cells[i] != null) {
@@ -122,8 +122,8 @@ public class KNN {
         return twos >= fours ? 2 : 4;
     }
 
-    // compute euclidian distance between start and end
-    // return tuple of endID and distance
+    // compute euclidian distances between start and end
+    // return tuple of endID and distances
     private static Pair distance(int[] start, int[] ending, int endID) {
         return new Pair(endID, Math.sqrt(Math.pow(start[1] - ending[1], 2)
                 + Math.pow(start[2] - ending[2], 2)
@@ -174,7 +174,7 @@ public class KNN {
     }
 
 
-    // class for cell id and distance tuple
+    // class for cell id and distances tuple
     public static class Pair {
         public final int ID;
         public final double DISTANCE;
@@ -190,14 +190,14 @@ public class KNN {
     public static class Cell {
         public final int ID;
         public final int CANCER;
-        ArrayList<Pair> distance;
+        ArrayList<Pair> distances;
         public int guess;
         public boolean correct;
 
         public Cell(int id, int cancer, ArrayList<Pair> d) {
             this.ID = id;
             this.CANCER = cancer;
-            this.distance = d;
+            this.distances = d;
         }
     }
 
