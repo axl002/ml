@@ -29,7 +29,7 @@ public class KNN {
         topKek(HOW_MANY_K);
         score();
         long total = System.currentTimeMillis() - davai;
-        System.out.println("\nruntime: " + total + " nonoseconds");
+        System.out.println("\nruntime: " + total + " momoseconds (1 second = 1000 momoseconds)");
     }
 
 
